@@ -1,0 +1,89 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="icuSanaMit.SiteMaster" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    </head>
+<body>
+
+    <form runat="server">
+    <div class="page">
+    
+        <div class="header">
+            <div class="title">
+                <h1>
+                    Rwanda ICU Database
+                </h1>
+            </div>
+            <div class="loginDisplay">
+                <asp:Label ID="error" runat="server" Text="User ID or password was not right!" ForeColor="Red" Font-Bold="true"></asp:Label><asp:Label ID="hello" runat="server" Text="Hello "></asp:Label>&nbsp  <asp:Label ID="user" runat="server" Text="user"></asp:Label>
+                &nbsp &nbsp<asp:Button ID="signout" runat="server" Text="Sign out" CausesValidation="false" 
+                    onclick="signout_Click" />
+            <%--   <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView> --%>
+                <br />
+                <asp:Table ID="Table1" runat="server" HorizontalAlign="Right">
+                <asp:TableRow><asp:TableCell><asp:Label ID="label1" runat="server" Text="User ID"></asp:Label></asp:TableCell><asp:TableCell><asp:TextBox ID="textBox1" runat="server"></asp:TextBox></asp:TableCell>
+                
+                </asp:TableRow>
+                <asp:TableRow><asp:TableCell>password:</asp:TableCell><asp:TableCell><asp:TextBox ID="pass" runat="server" TextMode="Password"></asp:TextBox></asp:TableCell></asp:TableRow>
+                <asp:TableRow><asp:TableCell></asp:TableCell><asp:TableCell>
+                    <asp:Button ID="Button1" runat="server" Text="logIn" OnClick="Button1_click" /></asp:TableCell></asp:TableRow>
+                </asp:Table>
+                <asp:Label ID="Label2" runat="server" ForeColor="#0099FF" Text="Label"></asp:Label>
+                <asp:Label ID="Label3" runat="server" ForeColor="#0099FF" Text="Label"></asp:Label>
+            </div>
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
+                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
+                        <asp:MenuItem Text="Admission">
+                            <asp:MenuItem NavigateUrl="~/hospitalAdmission.aspx" Text="Hospital admission table" />
+                            <asp:MenuItem NavigateUrl="~/Discharged.aspx" Text="Discharged Patients" ></asp:MenuItem>
+                            </asp:MenuItem>
+                        <asp:MenuItem Text="Reports">
+                        <asp:MenuItem NavigateUrl="~/PatientInformation.aspx?hh=l" Text="Patient Information" />
+                        <asp:MenuItem NavigateUrl="~/ICUMonthlyStatistics.aspx" Text="ICU Monthly Statistics" />
+                        <asp:MenuItem NavigateUrl="~/MonthlyReport.aspx" Text="ICU Monthly Report" />
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Administration panel">
+                        <asp:MenuItem NavigateUrl="~/adminPanel.aspx" Text="Employees">
+                        <asp:MenuItem Text="Job Titles" />
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Hospitals" />
+                        <asp:MenuItem Text="Locations">
+                        <asp:MenuItem NavigateUrl="~/Districts.aspx" Text="Districts" />
+                        <asp:MenuItem NavigateUrl="~/Provinces.aspx" Text="Provinces" />
+                        
+                        <asp:MenuItem Text="Countries" /></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/insurance1.aspx" Text="Insurances" />
+                        </asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+              
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+    </form>
+</body>
+</html>
