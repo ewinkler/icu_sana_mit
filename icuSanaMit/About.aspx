@@ -10,4 +10,5 @@
     <p>
         Put content here.
     </p>
+    <!-- This is a test comment -->
 </asp:Content>
