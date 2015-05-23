@@ -13,4 +13,5 @@
     <!-- This is a test comment -->
     <!-- This is a test for the test branch -->
     <!-- This is another test comment -->
+    My content <!-- Vasil -->
 </asp:Content>
